@@ -9,7 +9,7 @@
     },
     "require": {
         "php"              : ">=5.4.0",
-        "league/flysystem" : "*",
+        "league/flysystem" : "1.1.5",
 	    "guzzlehttp/guzzle": "4.*",
 	    "sabre/dav"        : "2.*"
     },
