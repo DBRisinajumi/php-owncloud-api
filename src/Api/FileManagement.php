@@ -4,6 +4,7 @@ namespace Owncloud\Api;
 
 use League\Flysystem\Adapter\WebDav;
 use League\Flysystem\Filesystem;
+use Owncloud\OwnCloudWebDav;
 use Sabre\DAV\Client;
 
 /**
@@ -39,11 +40,9 @@ class FileManagement extends Filesystem
         }
 
         /** set from setting WebDav path */
-        if (isset($settings['pathRemoteWebDav'])) {
-            $adapter = new WebDav($client, $settings['pathRemoteWebDav']);
-        } else {
-            $adapter = new WebDav($client, 'remote.php/webdav/');
-        }
+
+        $adapter = new OwnCloudWebDav($host,$username, $password);
+
 
         parent::__construct($adapter);
     }
